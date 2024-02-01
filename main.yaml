@@ -645,6 +645,8 @@ paths:
     get:
       summary: "\u83B7\u53D6\u61C2\u4F60100URL"
       tags: []
+      security:
+        - token: []
       responses:
         '200':
           description: OK
