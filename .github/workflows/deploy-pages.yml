@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:    
 
 jobs:
   main:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +20,7 @@ jobs:
           node-version: "16"
 
       - run: npm install
-          
+
       - name: Build
         run: npm run build
 
