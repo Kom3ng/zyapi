@@ -95,7 +95,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -167,7 +167,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -278,7 +278,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -374,7 +374,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -502,7 +502,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -578,7 +578,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -655,7 +655,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -728,7 +728,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -785,7 +785,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -841,7 +841,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1044,7 +1044,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1103,7 +1103,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1159,7 +1159,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1221,7 +1221,7 @@
                       "type": "string"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1359,7 +1359,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1430,7 +1430,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1485,7 +1485,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1718,7 +1718,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1832,7 +1832,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -1972,7 +1972,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -2052,7 +2052,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -2276,7 +2276,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -2371,7 +2371,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -2434,7 +2434,7 @@
                       "type": "integer"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -2504,7 +2504,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -2575,7 +2575,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "$ref": "#/components/schemas/Error"
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -2630,8 +2630,8 @@
   },
   "components": {
     "schemas": {
-      "Error": {
-        "title": "Error",
+      "ApiError": {
+        "title": "ApiError",
         "type": "object",
         "properties": {
           "code": {
