@@ -1,1 +1,1 @@
-[在线演示](http://gp.astrack.me/zyapi/public/index.html)
+[在线演示](http://gp.astrack.me/zyapi/)
