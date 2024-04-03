@@ -1,0 +1,8 @@
+{
+    "inputs": [
+        {
+            "inputFile": "./open-api/main.yaml"
+        }
+    ],
+    "output": "./public/dist.json"
+}

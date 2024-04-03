@@ -1,0 +1,13 @@
+{
+  "name": "zyapi",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "openapi-merge-cli --config config.json"
+  },
+  "author": "Astrack",
+  "license": "MIT",
+  "dependencies": {
+    "openapi-merge-cli": "^1.3.1"
+  }
+}
