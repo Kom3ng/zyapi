@@ -1581,6 +1581,50 @@ paths:
                   type: string
                 summary:
                   type: string
+  /TokenAuth/RefreshToken:
+    post:
+      tags:
+        - "manage"
+      description: '刷新token'
+      parameters: 
+        - name: "refreshToken"
+          in: "header"
+          description: "refreshToken"
+          required: true
+          schema:
+            type: "string"
+      security:
+        - token: []
+      
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      accessToken:
+                        type: string
+                      expireInSeconds:
+                        type: integer
+                      refreshExpireInSeconds:
+                        type: integer
+                      refreshToken:
+                        type: string
+                  targetUrl:
+                    type: string
+                  success:
+                    type: boolean
+                  error:
+                    $ref: '#/components/schemas/ApiError'
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
 components:
   schemas:
     ApiError:
