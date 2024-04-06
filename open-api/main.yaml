@@ -2139,7 +2139,7 @@ paths:
       description: ''
       parameters: 
         - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: '#/components/parameters/AppName'
         - name: examId
           in: query
           schema: 
