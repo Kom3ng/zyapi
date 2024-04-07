@@ -17,7 +17,11 @@
   "servers": [
     {
       "url": "http://sxz.api6.zykj.org/api",
-      "description": "api"
+      "description": "Official Server"
+    },
+    {
+      "url": "https://proxy.astrack.me/zykj/api",
+      "description": "Proxy Server"
     }
   ],
   "paths": {
