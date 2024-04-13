@@ -2042,103 +2042,118 @@ paths:
           description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
-                  address:
+                  result:
+                    type: object
+                    properties:
+                      address:
+                        type: string
+                        nullable: true
+                      answerPad:
+                        type: boolean
+                      answerSheet:
+                        type: boolean
+                      answerSheetId:
+                        type: integer
+                      answeringUrge:
+                        type: integer
+                      correctOnline:
+                        type: boolean
+                      correctOnlineState:
+                        type: integer
+                      correctWithSelf:
+                        type: boolean
+                      creationTime:
+                        type: string
+                        format: date-time
+                      displayAnswer:
+                        type: integer
+                      enableScore:
+                        type: boolean
+                      endTime:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      examId:
+                        type: integer
+                      examName:
+                        type: string
+                      examState:
+                        type: integer
+                      examTips:
+                        type: string
+                        nullable: true
+                      gradeId:
+                        type: integer
+                      gradeName:
+                        type: string
+                      groups:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            description:
+                              type: string
+                            myScore:
+                              type: integer
+                            name:
+                              type: string
+                            number:
+                              type: integer
+                            qstCount:
+                              type: integer
+                            questions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  askForHelp:
+                                    type: boolean
+                                  completed:
+                                    type: boolean
+                                  hasMicroClass:
+                                    type: boolean
+                                  id:
+                                    type: integer
+                                  itemType:
+                                    type: integer
+                                  myScore:
+                                    type: integer
+                                  name:
+                                    type: string
+                                    nullable: true
+                                  number:
+                                    type: integer
+                                  originScore:
+                                    type: integer
+                                    nullable: true
+                                  relatedGroupId:
+                                    type: integer
+                                    nullable: true
+                                  revisingResult:
+                                    type: integer
+                                  score:
+                                    type: integer
+                                  state:
+                                    type: integer
+                            score:
+                              type: integer
+                            showGroupNumber:
+                              type: boolean
+                  targetUrl:
                     type: string
                     nullable: true
-                  answerPad:
+                  success:
                     type: boolean
-                  answerSheet:
-                    type: boolean
-                  answerSheetId:
-                    type: integer
-                  answeringUrge:
-                    type: integer
-                  correctOnline:
-                    type: boolean
-                  correctOnlineState:
-                    type: integer
-                  correctWithSelf:
-                    type: boolean
-                  creationTime:
-                    type: string
-                    format: date-time
-                  displayAnswer:
-                    type: integer
-                  enableScore:
-                    type: boolean
-                  endTime:
-                    type: string
-                    format: date-time
-                    nullable: true
-                  examId:
-                    type: integer
-                  examName:
-                    type: string
-                  examState:
-                    type: integer
-                  examTips:
+                  error:
                     type: string
                     nullable: true
-                  gradeId:
-                    type: integer
-                  gradeName:
-                    type: string
-                  groups:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        description:
-                          type: string
-                        myScore:
-                          type: integer
-                        name:
-                          type: string
-                        number:
-                          type: integer
-                        qstCount:
-                          type: integer
-                        questions:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              askForHelp:
-                                type: boolean
-                              completed:
-                                type: boolean
-                              hasMicroClass:
-                                type: boolean
-                              id:
-                                type: integer
-                              itemType:
-                                type: integer
-                              myScore:
-                                type: integer
-                              name:
-                                type: string
-                                nullable: true
-                              number:
-                                type: integer
-                              originScore:
-                                type: integer
-                                nullable: true
-                              relatedGroupId:
-                                type: integer
-                                nullable: true
-                              revisingResult:
-                                type: integer
-                              score:
-                                type: integer
-                              state:
-                                type: integer
-                        score:
-                          type: integer
-                        showGroupNumber:
-                          type: boolean
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
   /services/app/Task/GetQuestionViewAsync:
     get:
       operationId: getQuestionView
