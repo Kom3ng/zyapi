@@ -12,7 +12,9 @@ info:
     url: https://mit-license.org/
 servers:
 - url: http://sxz.api6.zykj.org/api
-  description: api
+  description: Official Server
+- url: https://proxy.astrack.me/zykj/api
+  description: Proxy Server
 paths:
   /services/app/Weather/GetQWeatherAsync:
     get:
@@ -2145,7 +2147,7 @@ paths:
       description: ''
       parameters: 
         - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: '#/components/parameters/AppName'
         - name: examId
           in: query
           schema: 
