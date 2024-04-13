@@ -3512,8 +3512,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "type": "string",
-                      "nullable": true
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
@@ -3761,8 +3760,7 @@
                       "type": "boolean"
                     },
                     "error": {
-                      "type": "string",
-                      "nullable": true
+                      "$ref": "#/components/schemas/ApiError"
                     },
                     "unAuthorizedRequest": {
                       "type": "boolean"
