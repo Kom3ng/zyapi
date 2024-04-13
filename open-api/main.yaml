@@ -1626,6 +1626,7 @@ paths:
                     type: boolean
   /services/app/Task/GetStudentTaskListAsync:
     post:
+      operationId: getStudentTaskList
       tags:
         - 'task'
       description: '获取任务列表'
@@ -1732,6 +1733,7 @@ paths:
                     type: boolean
   /services/app/Task/GetNoQstExamTaskAsync:
     get:
+      operationId: getNoQstExam
       tags:
         - "task"
       description: ''
@@ -1915,6 +1917,7 @@ paths:
                         type: integer
   /services/app/Task/AskForHelpAsync:
     post:
+      operationId: askForHelp
       tags:
         - "task"
       description: ''
@@ -1958,6 +1961,7 @@ paths:
                     type: object
   /services/app/Task/NoQstExamAnswerAsync:
     post:
+      operationId: noQstExamAnswer
       tags:
         - "task"
       description: ''
@@ -2017,6 +2021,7 @@ paths:
                     type: object
   /services/app/Task/GetExamTaskAsync:
     get:
+      operationId: getExamTask
       tags:
         - "task"
       description: ''
@@ -2134,6 +2139,7 @@ paths:
                           type: boolean
   /services/app/Task/GetQuestionViewAsync:
     get:
+      operationId: getQuestionView
       tags:
         - "task"
       description: ''
@@ -2297,6 +2303,7 @@ paths:
                     type: boolean
   /services/app/Task/ExamAnswerAsync:
     post:
+      operationId: examAnswer
       tags:
         - "task"
       description: ''
@@ -2352,6 +2359,7 @@ paths:
                     type: object
   /services/app/Task/CompleteAsync:
     post:
+      operationId: complete
       tags:
         - "task"
       description: ''
