@@ -2703,6 +2703,7 @@
     },
     "/services/app/Task/GetStudentTaskListAsync": {
       "post": {
+        "operationId": "getStudentTaskList",
         "tags": [
           "task"
         ],
@@ -2871,6 +2872,7 @@
     },
     "/services/app/Task/GetNoQstExamTaskAsync": {
       "get": {
+        "operationId": "getNoQstExam",
         "tags": [
           "task"
         ],
@@ -3151,6 +3153,7 @@
     },
     "/services/app/Task/AskForHelpAsync": {
       "post": {
+        "operationId": "askForHelp",
         "tags": [
           "task"
         ],
@@ -3224,6 +3227,7 @@
     },
     "/services/app/Task/NoQstExamAnswerAsync": {
       "post": {
+        "operationId": "noQstExamAnswer",
         "tags": [
           "task"
         ],
@@ -3323,6 +3327,7 @@
     },
     "/services/app/Task/GetExamTaskAsync": {
       "get": {
+        "operationId": "getExamTask",
         "tags": [
           "task"
         ],
@@ -3504,6 +3509,7 @@
     },
     "/services/app/Task/GetQuestionViewAsync": {
       "get": {
+        "operationId": "getQuestionView",
         "tags": [
           "task"
         ],
@@ -3752,6 +3758,7 @@
     },
     "/services/app/Task/ExamAnswerAsync": {
       "post": {
+        "operationId": "examAnswer",
         "tags": [
           "task"
         ],
@@ -3846,6 +3853,7 @@
     },
     "/services/app/Task/CompleteAsync": {
       "post": {
+        "operationId": "complete",
         "tags": [
           "task"
         ],
