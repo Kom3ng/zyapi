@@ -2148,8 +2148,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    type: string
-                    nullable: true
+                    $ref: '#/components/schemas/ApiError'
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -2312,8 +2311,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    type: string
-                    nullable: true
+                    $ref: '#/components/schemas/ApiError'
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
