@@ -2541,8 +2541,8 @@ components:
       in: header
       schema:
         type: string
-        example: WebApp
-        default: WebApp
+        example: WebClient
+        default: WebClient
       description: "\u8BF7\u6C42api\u7684\u5E94\u7528\u7684\u5305\u540D"
       required: true
     AppVersion:
