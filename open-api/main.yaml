@@ -1316,70 +1316,7 @@ paths:
                   result:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        cleared:
-                          type: integer
-                        closed:
-                          type: boolean
-                        courseId:
-                          type: integer
-                        createTime:
-                          type: string
-                        askUserId:
-                          type: integer
-                        members:
-                          type: integer
-                        messages:
-                          type: integer
-                        snapshot:
-                          type: string
-                        summary:
-                          type: string
-                        updateTime:
-                          type: string
-                        updateUserId:
-                          type: integer
-                        sessionRole:
-                          type: integer
-                        unRead:
-                          type: integer
-                        primaryUnRead:
-                          type: integer
-                        sentMessages:
-                          type: integer
-                        openCount:
-                          type: integer
-                        state:
-                          type: integer
-                        userId:
-                          type: integer
-                        joinType:
-                          type: integer
-                        joinTime:
-                          type: string
-                        askUserName:
-                          type: string
-                        updateUserName:
-                          type: string
-                        askUserPhoto:
-                          type: string
-                          format: uri
-                        updateUserPhoto:
-                          type: string
-                          format: uri
-                        disabled:
-                          type: boolean
-                        class:
-                          type: string
-                        topicName:
-                          type: string
-                        isCollect:
-                          type: boolean
-                        searched:
-                          type: integer
-                        id:
-                          type: integer
+                      $ref: '#/components/schemas/Session'                        
                   targetUrl:
                     type: string
                   success:
@@ -1658,71 +1595,7 @@ paths:
                 type: object
                 properties:
                   result:
-                    type: object
-                    properties:
-                      totalCount:
-                        type: integer
-                      items:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                              address:
-                                type: string
-                                format: uri
-                              answerPad:
-                                type: boolean
-                              answerSheet:
-                                type: boolean
-                              answeringUrge:
-                                type: integer
-                              correctOnline:
-                                type: boolean
-                              correctOnlineState:
-                                type: integer
-                              correctWithSelf:
-                                type: boolean
-                              creationTime:
-                                type: string
-                                format: date-time
-                              endTime:
-                                type: string
-                                format: date-time
-                              examId:
-                                type: integer
-                              examName:
-                                type: string
-                              examState:
-                                type: integer
-                              examTaskId:
-                                type: integer
-                              isCollect:
-                                type: boolean
-                              isExempted:
-                                type: boolean
-                              isNoStem:
-                                type: boolean
-                              isRead:
-                                type: boolean
-                              revisingUrge:
-                                type: integer
-                              serialNum:
-                                type: string
-                              size:
-                                type: integer
-                              specificTrainingType:
-                                type: integer
-                              startTime:
-                                type: string
-                                format: date-time
-                              taskState:
-                                type: integer
-                              testPagerId:
-                                type: integer
-                              topicId:
-                                type: integer
-                              topicName:
-                                type: string
+                    $ref: '#/components/schemas/TaskList'
                   targetUrl:
                     type: string
                   success:
@@ -1768,155 +1641,7 @@ paths:
                   __abp:
                     type: boolean
                   result:
-                    type: object
-                    properties:
-                      address:
-                        type: string
-                        nullable: true
-                      answerPad:
-                        type: boolean
-                      answerSheet:
-                        type: boolean
-                      answerSheetId:
-                        type: integer
-                      answeringUrge:
-                        type: integer
-                      correctOnline:
-                        type: boolean
-                      correctOnlineState:
-                        type: integer
-                      correctWithSelf:
-                        type: boolean
-                      creationTime:
-                        type: string
-                        format: date-time
-                      displayAnswer:
-                        type: integer
-                      enableScore:
-                        type: boolean
-                      endTime:
-                        type: string
-                        format: date-time
-                        nullable: true
-                      examId:
-                        type: integer
-                      examName:
-                        type: string
-                      examState:
-                        type: integer
-                      examTips:
-                        type: string
-                        nullable: true
-                      gradeId:
-                        type: integer
-                      gradeName:
-                        type: string
-                      groups:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            description:
-                              type: string
-                              nullable: true
-                            myScore:
-                              type: integer
-                            name:
-                              type: string
-                            number:
-                              type: integer
-                            qstCount:
-                              type: integer
-                            questions:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  answerList:
-                                    type: array
-                                    items:
-                                      type: object
-                                      properties:
-                                        answers:
-                                          type: array
-                                          items:
-                                            type: string
-                                        pid:
-                                          type: integer
-                                          nullable: true
-                                        uuid:
-                                          type: string
-                                  answerWithQuestion:
-                                    type: boolean
-                                  askForHelp:
-                                    type: boolean
-                                  completed:
-                                    type: boolean
-                                  id:
-                                    type: integer
-                                  myScore:
-                                    type: integer
-                                  name:
-                                    type: string
-                                  number:
-                                    type: integer
-                                  qstFlows:
-                                    type: array
-                                    items:
-                                      $ref: '#/components/schemas/QstFlow'
-                                  score:
-                                    type: integer
-                      id:
-                        type: integer
-                      isExempted:
-                        type: boolean
-                      isRead:
-                        type: boolean
-                        nullable: true
-                      isRepresentative:
-                        type: boolean
-                      myScore:
-                        type: integer
-                      noQstStem:
-                        type: boolean
-                      qstCount:
-                        type: integer
-                      revisingUrge:
-                        type: integer
-                      score:
-                        type: integer
-                      serialNum:
-                        type: string
-                        nullable: true
-                      size:
-                        type: integer
-                      specificTrainingType:
-                        type: integer
-                      startTime:
-                        type: string
-                        format: date-time
-                      state:
-                        type: integer
-                      studentUserId:
-                        type: integer
-                      teacherUserId:
-                        type: integer
-                      testDescription:
-                        type: string
-                      testPagerId:
-                        type: integer
-                      testPagerName:
-                        type: string
-                      testTips:
-                        type: string
-                      topicId:
-                        type: integer
-                      topicName:
-                        type: string
-                      whenShowAnswer:
-                        type: integer
-                      whenShowMicroLesson:
-                        type: integer
+                    $ref: '#/components/schemas/NoQstExam'
   /services/app/Task/AskForHelpAsync:
     post:
       operationId: askForHelp
@@ -1983,24 +1708,7 @@ paths:
             schema: 
               type: array
               items: 
-                type: object
-                properties:
-                  answers:
-                    type: array
-                    items: 
-                      type: object
-                      properties:
-                        answers:
-                          type: array
-                          items: 
-                            type: string
-                        uuid: 
-                          type: string
-                          format: uuid
-                  draft:
-                    type: string
-                  questionId:
-                    type: integer
+                $ref: '#/components/schemas/Answers'
       responses:
         '200':
           description: OK    
@@ -2046,102 +1754,7 @@ paths:
                 type: object
                 properties:
                   result:
-                    type: object
-                    properties:
-                      address:
-                        type: string
-                        nullable: true
-                      answerPad:
-                        type: boolean
-                      answerSheet:
-                        type: boolean
-                      answerSheetId:
-                        type: integer
-                      answeringUrge:
-                        type: integer
-                      correctOnline:
-                        type: boolean
-                      correctOnlineState:
-                        type: integer
-                      correctWithSelf:
-                        type: boolean
-                      creationTime:
-                        type: string
-                        format: date-time
-                      displayAnswer:
-                        type: integer
-                      enableScore:
-                        type: boolean
-                      endTime:
-                        type: string
-                        format: date-time
-                        nullable: true
-                      examId:
-                        type: integer
-                      examName:
-                        type: string
-                      examState:
-                        type: integer
-                      examTips:
-                        type: string
-                        nullable: true
-                      gradeId:
-                        type: integer
-                      gradeName:
-                        type: string
-                      groups:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            description:
-                              type: string
-                            myScore:
-                              type: integer
-                            name:
-                              type: string
-                            number:
-                              type: integer
-                            qstCount:
-                              type: integer
-                            questions:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  askForHelp:
-                                    type: boolean
-                                  completed:
-                                    type: boolean
-                                  hasMicroClass:
-                                    type: boolean
-                                  id:
-                                    type: integer
-                                  itemType:
-                                    type: integer
-                                  myScore:
-                                    type: integer
-                                  name:
-                                    type: string
-                                    nullable: true
-                                  number:
-                                    type: integer
-                                  originScore:
-                                    type: integer
-                                    nullable: true
-                                  relatedGroupId:
-                                    type: integer
-                                    nullable: true
-                                  revisingResult:
-                                    type: integer
-                                  score:
-                                    type: integer
-                                  state:
-                                    type: integer
-                            score:
-                              type: integer
-                            showGroupNumber:
-                              type: boolean
+                    $ref: '#/components/schemas/ExamTask'
                   targetUrl:
                     type: string
                     nullable: true
@@ -2183,128 +1796,7 @@ paths:
                 type: object
                 properties:
                   result:
-                    type: object
-                    properties:
-                      attachments:
-                        type: string
-                      qstAnswers:
-                        type: string
-                        nullable: true
-                      analysis:
-                        type: string
-                        nullable: true
-                      microClassToQuestionList:
-                        type: array
-                        items: 
-                          type: object
-                      microClassToStudentList:
-                        type: array
-                        items: 
-                          type: object
-                      examDraft:
-                        type: string
-                      revisingDraft:
-                        type: string
-                        nullable: true
-                      revisingResult:
-                        type: integer
-                      examAnswered:
-                        type: boolean
-                      revisingAnswerd:
-                        type: boolean
-                      lastRoundRevisingRecords:
-                        type: array
-                        items: 
-                          type: object
-                      typicalRightAnswers:
-                        type: string
-                        nullable: true
-                      typicalErrorAnswers:
-                        type: string
-                        nullable: true
-                      isInMistakeBook:
-                        type: boolean
-                      askForHelp:
-                        type: boolean
-                      number:
-                        type: integer
-                      path:
-                        type: string
-                      itemType:
-                        type: integer
-                      qstFlows:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/QstFlow'
-                      qstFlowsCount:
-                        type: integer
-                      totalScore:
-                        type: number
-                      totalAnswerScore:
-                        type: number
-                      score:
-                        type: number
-                      originScore:
-                        type: number
-                        nullable: true
-                      answerWithQuestion:
-                        type: boolean
-                      answerList:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            uuid:
-                              type: string
-                            number:
-                              type: integer
-                            examAnswers:
-                              type: array
-                              items: 
-                                type: string
-                            examComments:
-                              type: array
-                              items:
-                                type: string
-                            examMicroLessonComment:
-                              type: string
-                              nullable: true
-                            revisingAnswers:
-                              type: array
-                              items: 
-                                type: string
-                            revisingComments:
-                              type: array
-                              items:
-                                type: string
-                            reviseMicroLessonComment:
-                              type: string
-                              nullable: true
-                            score:
-                              type: number
-                            originScore:
-                              type: number
-                              nullable: true
-                            result:
-                              type: integer
-                            originResult:
-                              type: integer
-                              nullable: true
-                            displayAnswer:
-                              type: integer
-                            whenShowAnswer:
-                              type: integer
-                            whenShowMicroLesson:
-                              type: integer
-                            examState:
-                              type: integer
-                            taskState:
-                              type: integer
-                      microClassList:
-                        type: string
-                        nullable: true
-                      id:
-                        type: integer
+                    $ref: '#/components/schemas/QuestionView'
                   targetUrl:
                     type: string
                     nullable: true
@@ -2335,23 +1827,7 @@ paths:
         content:
           application/json:
             schema: 
-              type: object
-              properties:
-                answers:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      answers:
-                        type: array
-                        items:
-                          type: string
-                      uuid:
-                        type: string
-                draft:
-                  type: string
-                questionId:
-                  type: integer                
+              $ref: '#/components/schemas/Answers'              
       responses:
         '200':
           description: OK
@@ -2430,30 +1906,7 @@ paths:
                 type: object
                 properties:
                   result:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                      userName:
-                        type: string
-                      realName:
-                        type: string
-                      surname:
-                        type: string
-                      name:
-                        type: string
-                      mobile:
-                        type: string
-                        nullable: true
-                      email:
-                        type: string
-                        nullable: true
-                      photo:
-                        type: string
-                      roles:
-                        type: array
-                        items:
-                          type: integer
+                    $ref: '#/components/schemas/UserInfo'
                   targetUrl:
                     type: string
                     nullable: true
@@ -2530,6 +1983,551 @@ components:
           type: string
         start:
           type: string
+    UserInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+        userName:
+          type: string
+        realName:
+          type: string
+        surname:
+          type: string
+        name:
+          type: string
+        mobile:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        photo:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleType'
+    QuestionView:
+      type: object
+      properties:
+        attachments:
+          type: string
+        qstAnswers:
+          type: string
+          nullable: true
+        analysis:
+          type: string
+          nullable: true
+        microClassToQuestionList:
+          type: array
+          items: 
+            type: object
+        microClassToStudentList:
+          type: array
+          items: 
+            type: object
+        examDraft:
+          type: string
+        revisingDraft:
+          type: string
+          nullable: true
+        revisingResult:
+          type: integer
+        examAnswered:
+          type: boolean
+        revisingAnswerd:
+          type: boolean
+        lastRoundRevisingRecords:
+          type: array
+          items: 
+            type: object
+        typicalRightAnswers:
+          type: string
+          nullable: true
+        typicalErrorAnswers:
+          type: string
+          nullable: true
+        isInMistakeBook:
+          type: boolean
+        askForHelp:
+          type: boolean
+        number:
+          type: integer
+        path:
+          type: string
+        itemType:
+          type: integer
+        qstFlows:
+          type: array
+          items:
+            $ref: '#/components/schemas/QstFlow'
+        qstFlowsCount:
+          type: integer
+        totalScore:
+          type: number
+        totalAnswerScore:
+          type: number
+        score:
+          type: number
+        originScore:
+          type: number
+          nullable: true
+        answerWithQuestion:
+          type: boolean
+        answerList:
+          type: array
+          items:
+            type: object
+            properties:
+              uuid:
+                type: string
+              number:
+                type: integer
+              examAnswers:
+                type: array
+                items: 
+                  type: string
+              examComments:
+                type: array
+                items:
+                  type: string
+              examMicroLessonComment:
+                type: string
+                nullable: true
+              revisingAnswers:
+                type: array
+                items: 
+                  type: string
+              revisingComments:
+                type: array
+                items:
+                  type: string
+              reviseMicroLessonComment:
+                type: string
+                nullable: true
+              score:
+                type: number
+              originScore:
+                type: number
+                nullable: true
+              result:
+                type: integer
+              originResult:
+                type: integer
+                nullable: true
+              displayAnswer:
+                type: integer
+              whenShowAnswer:
+                type: integer
+              whenShowMicroLesson:
+                type: integer
+              examState:
+                type: integer
+              taskState:
+                type: integer
+        microClassList:
+          type: string
+          nullable: true
+        id:
+          type: integer
+    ExamTask:
+      type: object
+      properties:
+        address:
+          type: string
+          nullable: true
+        answerPad:
+          type: boolean
+        answerSheet:
+          type: boolean
+        answerSheetId:
+          type: integer
+        answeringUrge:
+          type: integer
+        correctOnline:
+          type: boolean
+        correctOnlineState:
+          type: integer
+        correctWithSelf:
+          type: boolean
+        creationTime:
+          type: string
+          format: date-time
+        displayAnswer:
+          type: integer
+        enableScore:
+          type: boolean
+        endTime:
+          type: string
+          format: date-time
+          nullable: true
+        examId:
+          type: integer
+        examName:
+          type: string
+        examState:
+          type: integer
+        examTips:
+          type: string
+          nullable: true
+        gradeId:
+          type: integer
+        gradeName:
+          type: string
+        groups:
+          type: array
+          items:
+            type: object
+            properties:
+              description:
+                type: string
+              myScore:
+                type: integer
+              name:
+                type: string
+              number:
+                type: integer
+              qstCount:
+                type: integer
+              questions:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    askForHelp:
+                      type: boolean
+                    completed:
+                      type: boolean
+                    hasMicroClass:
+                      type: boolean
+                    id:
+                      type: integer
+                    itemType:
+                      type: integer
+                    myScore:
+                      type: integer
+                    name:
+                      type: string
+                      nullable: true
+                    number:
+                      type: integer
+                    originScore:
+                      type: integer
+                      nullable: true
+                    relatedGroupId:
+                      type: integer
+                      nullable: true
+                    revisingResult:
+                      type: integer
+                    score:
+                      type: integer
+                    state:
+                      type: integer
+              score:
+                type: integer
+              showGroupNumber:
+                type: boolean
+    Answers:
+      type: object
+      properties:
+        answers:
+          type: array
+          items: 
+            type: object
+            properties:
+              answers:
+                type: array
+                items: 
+                  type: string
+              uuid: 
+                type: string
+                format: uuid
+        draft:
+          type: string
+        questionId:
+          type: integer
+    NoQstExam:
+      type: object
+      properties:
+        address:
+          type: string
+          nullable: true
+        answerPad:
+          type: boolean
+        answerSheet:
+          type: boolean
+        answerSheetId:
+          type: integer
+        answeringUrge:
+          type: integer
+        correctOnline:
+          type: boolean
+        correctOnlineState:
+          type: integer
+        correctWithSelf:
+          type: boolean
+        creationTime:
+          type: string
+          format: date-time
+        displayAnswer:
+          type: integer
+        enableScore:
+          type: boolean
+        endTime:
+          type: string
+          format: date-time
+          nullable: true
+        examId:
+          type: integer
+        examName:
+          type: string
+        examState:
+          type: integer
+        examTips:
+          type: string
+          nullable: true
+        gradeId:
+          type: integer
+        gradeName:
+          type: string
+        groups:
+          type: array
+          items:
+            type: object
+            properties:
+              description:
+                type: string
+                nullable: true
+              myScore:
+                type: integer
+              name:
+                type: string
+              number:
+                type: integer
+              qstCount:
+                type: integer
+              questions:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    answerList:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          answers:
+                            type: array
+                            items:
+                              type: string
+                          pid:
+                            type: integer
+                            nullable: true
+                          uuid:
+                            type: string
+                    answerWithQuestion:
+                      type: boolean
+                    askForHelp:
+                      type: boolean
+                    completed:
+                      type: boolean
+                    id:
+                      type: integer
+                    myScore:
+                      type: integer
+                    name:
+                      type: string
+                    number:
+                      type: integer
+                    qstFlows:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/QstFlow'
+                    score:
+                      type: integer
+        id:
+          type: integer
+        isExempted:
+          type: boolean
+        isRead:
+          type: boolean
+          nullable: true
+        isRepresentative:
+          type: boolean
+        myScore:
+          type: integer
+        noQstStem:
+          type: boolean
+        qstCount:
+          type: integer
+        revisingUrge:
+          type: integer
+        score:
+          type: integer
+        serialNum:
+          type: string
+          nullable: true
+        size:
+          type: integer
+        specificTrainingType:
+          type: integer
+        startTime:
+          type: string
+          format: date-time
+        state:
+          type: integer
+        studentUserId:
+          type: integer
+        teacherUserId:
+          type: integer
+        testDescription:
+          type: string
+        testPagerId:
+          type: integer
+        testPagerName:
+          type: string
+        testTips:
+          type: string
+        topicId:
+          type: integer
+        topicName:
+          type: string
+        whenShowAnswer:
+          type: integer
+        whenShowMicroLesson:
+          type: integer
+    TaskList:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+                address:
+                  type: string
+                  format: uri
+                answerPad:
+                  type: boolean
+                answerSheet:
+                  type: boolean
+                answeringUrge:
+                  type: integer
+                correctOnline:
+                  type: boolean
+                correctOnlineState:
+                  type: integer
+                correctWithSelf:
+                  type: boolean
+                creationTime:
+                  type: string
+                  format: date-time
+                endTime:
+                  type: string
+                  format: date-time
+                examId:
+                  type: integer
+                examName:
+                  type: string
+                examState:
+                  type: integer
+                examTaskId:
+                  type: integer
+                isCollect:
+                  type: boolean
+                isExempted:
+                  type: boolean
+                isNoStem:
+                  type: boolean
+                isRead:
+                  type: boolean
+                revisingUrge:
+                  type: integer
+                serialNum:
+                  type: string
+                size:
+                  type: integer
+                specificTrainingType:
+                  type: integer
+                startTime:
+                  type: string
+                  format: date-time
+                taskState:
+                  type: integer
+                testPagerId:
+                  type: integer
+                topicId:
+                  type: integer
+                topicName:
+                  type: string
+    Session:
+      type: object
+      properties:
+        cleared:
+          type: integer
+        closed:
+          type: boolean
+        courseId:
+          type: integer
+        createTime:
+          type: string
+        askUserId:
+          type: integer
+        members:
+          type: integer
+        messages:
+          type: integer
+        snapshot:
+          type: string
+        summary:
+          type: string
+        updateTime:
+          type: string
+        updateUserId:
+          type: integer
+        sessionRole:
+          type: integer
+        unRead:
+          type: integer
+        primaryUnRead:
+          type: integer
+        sentMessages:
+          type: integer
+        openCount:
+          type: integer
+        state:
+          type: integer
+        userId:
+          type: integer
+        joinType:
+          type: integer
+        joinTime:
+          type: string
+        askUserName:
+          type: string
+        updateUserName:
+          type: string
+        askUserPhoto:
+          type: string
+          format: uri
+        updateUserPhoto:
+          type: string
+          format: uri
+        disabled:
+          type: boolean
+        class:
+          type: string
+        topicName:
+          type: string
+        isCollect:
+          type: boolean
+        searched:
+          type: integer
+        id:
+          type: integer
   securitySchemes:
     token:
       type: http
