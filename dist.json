@@ -3170,6 +3170,7 @@
         "tags": [
           "manage"
         ],
+        "operationId": "getInfo",
         "description": "",
         "parameters": [],
         "security": [
