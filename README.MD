@@ -12,4 +12,4 @@
 - [ ] 在线专栏
 
 ## 贡献
-[看这里](https://github.com/kom3ng/zyapi/CONTRIBUTE.MD)
+[看这里](https://github.com/Kom3ng/zyapi/blob/master/CONTRIBUTE.MD)
