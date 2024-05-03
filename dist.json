@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "http://sxz.api6.zykj.org/api",
+      "url": "http://sxz.api.zykj.org/api",
       "description": "Official Server"
     },
     {
