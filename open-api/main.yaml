@@ -1146,7 +1146,7 @@ paths:
                 haveNoTag:
                   type: boolean
                 maxResultCount:
-                  type: boolean
+                  type: integer
                 skipCount:
                   type: integer
                 tagIdList:
