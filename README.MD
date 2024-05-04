@@ -11,5 +11,10 @@
 - [ ] 优课畅学
 - [ ] 在线专栏
 
+## 使用
+你可以通过[openapi generator](https://openapi-generator.tech/)生成你所需要的语言的api请求代码
+
+[此项目openapi文件地址](https://gp.astrack.me/zyapi/dist.json)
+
 ## 贡献
 [看这里](https://github.com/Kom3ng/zyapi/blob/master/CONTRIBUTE.MD)
