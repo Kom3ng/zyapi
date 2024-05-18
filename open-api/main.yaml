@@ -881,6 +881,23 @@ paths:
         - "mistake"
       summary: "\u79FB\u9664\u591A\u4E2A\u9519\u9898"
       operationId: multiRemoveMistakeItems
+      security:
+        - token: []
+      parameters:
+        - $ref: '#/components/parameters/AppName'
+        - $ref: '#/components/parameters/AppVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookId:
+                  type: integer
+                itemIds:
+                  type: array
+                  items:
+                    type: integer
       responses:
         '200':
           description: OK
@@ -901,23 +918,6 @@ paths:
                     type: boolean
                   __abp:
                     type: boolean
-      security:
-      - token: []
-      parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                bookId:
-                  type: integer
-                itemIds:
-                  type: array
-                  items:
-                    type: integer
   /services/app/MistakeBook/GetMistakeQstItemDetailInfoAsync:
     get:
       summary: "\u83B7\u53D6\u9519\u9898\u95EE\u9898\u4FE1\u606F"
@@ -1522,6 +1522,7 @@ paths:
                   type: string
   /TokenAuth/RefreshToken:
     post:
+      operationId: refreshToken
       tags:
         - "manage"
       description: '刷新token'
@@ -1915,6 +1916,263 @@ paths:
                     type: boolean
                   error:
                     $ref: '#/components/schemas/ApiError'
+  /services/app/MistakeBook/AddInMistakeBookAsync:
+    post:
+      operationId: addInMistakeBook
+      tags:
+        - "mistake"
+      description: ''
+      parameters: 
+        - $ref: '#/components/parameters/AppVersion'
+        - $ref: '#/components/parameters/AppName'
+      security:
+        - token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                examId:
+                  type: integer
+                extraStems:
+                  type: array
+                  items:
+                    type: string
+                isRelatedGroup:
+                  type: boolean
+                questionId:
+                  type: integer
+                stemShoot:
+                  type: string
+                tagIdList:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  targetUrl:
+                    type: string
+                  success:
+                    type: boolean
+                  error:
+                    $ref: '#/components/schemas/ApiError'
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
+                  result:
+                    type: integer
+  /services/app/MistakeBook/AddPictureNoteAsync:
+    post:
+      operationId: addPictureNote
+      security:
+        - token: []
+      tags:
+        - "mistake"
+      description: ''
+      parameters: 
+        - $ref: '#/components/parameters/AppVersion'
+        - $ref: '#/components/parameters/AppName'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mistakeItemId:
+                  type: integer
+                pictureNote:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    nullable: true
+                  targetUrl:
+                    type: string
+                  success:
+                    type: boolean
+                  error:
+                    $ref: '#/components/schemas/ApiError'
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
+  /services/app/MistakeBook/SetNoteAsync:
+    post:
+      operationId: setNote
+      tags:
+        - "mistake"
+      security:
+        - token: []
+      description: ''
+      parameters: 
+        - $ref: '#/components/parameters/AppVersion'
+        - $ref: '#/components/parameters/AppName'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mistakeItemId:
+                  type: integer
+                note:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    nullable: true
+                  targetUrl:
+                    type: string
+                  success:
+                    type: boolean
+                  error:
+                    $ref: '#/components/schemas/ApiError'
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
+  /services/app/MistakeBook/MultiSetTagsAsync:
+    post:
+      operationId: multiSetTags
+      tags:
+        - "mistake"
+      description: ''
+      parameters: 
+        - $ref: '#/components/parameters/AppVersion'
+        - $ref: '#/components/parameters/AppName'
+      security:
+        - token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookId:
+                  type: integer
+                itemIds:
+                  type: array
+                  items:
+                    type: integer
+                tagIdList:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    nullable: true
+                  targetUrl:
+                    type: string
+                  success:
+                    type: boolean
+                  error:
+                    $ref: '#/components/schemas/ApiError'
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
+  /services/app/MistakeBook/GetCustomMistakeQstItemDetailInfoAsync:
+    get:
+      operationId: getCustomMistakeQstItemDetailInfo
+      tags:
+        - "mistake"
+      description: ''
+      security:
+        - token: []
+      parameters: 
+        - $ref: '#/components/parameters/AppVersion'
+        - $ref: '#/components/parameters/AppName'
+        - name: itemId
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    $ref: '#/components/schemas/CustomMistakeInfo'
+                  targetUrl:
+                    type: string
+                  success:
+                    type: boolean
+                  error:
+                    $ref: '#/components/schemas/ApiError'
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
+  /services/app/MistakeBook/AddCustomMistakeQstItemAsync:
+    post:
+      operationId: addCustomMistakeQstItem
+      tags:
+        - "mistake"
+      security:
+        - token: []
+      description: ''
+      parameters: 
+        - $ref: '#/components/parameters/AppVersion'
+        - $ref: '#/components/parameters/AppName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomMistakeQstItem'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: integer
+                  targetUrl:
+                    type: string
+                  success:
+                    type: boolean
+                  error:
+                    $ref: '#/components/schemas/ApiError'
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean            
 components:
   schemas:
     ApiError:
@@ -2528,6 +2786,136 @@ components:
         searched:
           type: integer
         id:
+          type: integer
+    CustomMistakeInfo:
+      type: object
+      properties:
+        answerInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnswerInfo'
+        attachments:
+          type: string
+          nullable: true
+        attainedLevel:
+          type: string
+          nullable: true
+        bookId:
+          type: integer
+        diff:
+          type: string
+          nullable: true
+        errorReason:
+          type: string
+          nullable: true
+        examId:
+          type: integer
+          nullable: true
+        extraStems:
+          type: array
+          items:
+            type: string
+        isShowAnswer:
+          type: boolean
+        isShowMicroLesson:
+          type: boolean
+        itemId:
+          type: integer
+        itemType:
+          type: integer
+        microClassToQuestionList:
+          type: array
+          items:
+            type: string
+        microClassToStudentList:
+          type: array
+          items:
+            type: string
+        mistakeTags:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        number:
+          type: integer
+        pictureNote:
+          type: string
+          nullable: true
+        qstFlows:
+          type: array
+          items:
+            type: string
+        qstPath:
+          type: string
+        questionId:
+          type: integer
+        revisingResult:
+          type: integer
+        typicalErrorAnswers:
+          type: string
+          nullable: true
+        typicalRightAnswers:
+          type: string
+          nullable: true
+    AnswerInfo:
+      type: object
+      properties:
+        examAnswers:
+          type: array
+          items:
+            type: string
+        examComments:
+          type: array
+          items:
+            type: string
+        examMicroLessonComment:
+          type: string
+          nullable: true
+        number:
+          type: integer
+        result:
+          type: integer
+        reviseMicroLessonComment:
+          type: string
+          nullable: true
+        revisingAnswers:
+          type: array
+          items:
+            type: string
+        revisingComments:
+          type: array
+          items:
+            type: string
+        uuid:
+          type: string
+          nullable: true
+    CustomMistakeQstItem:
+      type: object
+      properties:
+        diff:
+          type: integer
+        extraAnswers:
+          type: array
+          items:
+            type: string
+        extraStems:
+          type: array
+          items:
+            type: string
+        stemShoot:
+          type: string
+        tagIdList:
+          type: array
+          items:
+            type: integer
+        title:
+          type: string
+        topicId:
           type: integer
   securitySchemes:
     token:
