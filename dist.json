@@ -4631,7 +4631,10 @@
             "type": "integer"
           },
           "pictureNote": {
-            "type": "string",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "qstFlows": {
