@@ -2178,18 +2178,6 @@ paths:
           in: query
           schema: 
             type: integer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                SessionId:
-                  type: string
-                Skip: 
-                  type: integer
-                Take: 
-                  type: integer
       responses:
         '200':
           description: OK     
@@ -2222,6 +2210,18 @@ paths:
       parameters:
         - $ref: '#/components/parameters/AppName'
         - $ref: '#/components/parameters/AppVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SessionId:
+                  type: string
+                Skip: 
+                  type: integer
+                Take: 
+                  type: integer
       responses:
         '200':
           description: OK       
