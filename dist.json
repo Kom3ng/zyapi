@@ -3657,26 +3657,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "SessionId": {
-                    "type": "string"
-                  },
-                  "Skip": {
-                    "type": "integer"
-                  },
-                  "Take": {
-                    "type": "integer"
-                  }
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3732,6 +3712,26 @@
             "$ref": "#/components/parameters/AppVersion"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SessionId": {
+                    "type": "string"
+                  },
+                  "Skip": {
+                    "type": "integer"
+                  },
+                  "Take": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
