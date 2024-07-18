@@ -1254,7 +1254,7 @@ paths:
       security:
       - token: []
   /services/app/Quora/GetQuoraStudentTopicsAsync:
-    post:
+    get:
       tags:
         - "quora"
       summary: "\u83B7\u53D6\u968F\u8EAB\u7B54"
@@ -1266,41 +1266,32 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        topicId:
+                          type: integer
+                        topicName:
+                          type: string
+                  targetUrl:
+                    type: string
+                  success:
+                    type: boolean
+                  error:
+                    $ref: '#/components/schemas/ApiError'
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
       security:
       - token: []
       parameters:
       - $ref: '#/components/parameters/AppName'
       - $ref: '#/components/parameters/AppVersion'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                Integer:
-                  type: integer
-                joinTime:
-                  type: object
-                  properties:
-                    end:
-                      type: string
-                    start:
-                      type: string
-                justWatch:
-                  type: array
-                  items:
-                    type: integer
-                keyword:
-                  type: string
-                orderBy:
-                  type: integer
-                skip:
-                  type: integer
-                take:
-                  type: integer
-                topicId:
-                  type: integer
+
   /services/app/Quora/GetSessions:
     post:
       summary: "\u83B7\u53D6\u968F\u8EAB\u7B54"
