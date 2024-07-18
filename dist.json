@@ -2079,7 +2079,7 @@
       }
     },
     "/services/app/Quora/GetQuoraStudentTopicsAsync": {
-      "post": {
+      "get": {
         "tags": [
           "quora"
         ],
@@ -2092,7 +2092,37 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "topicId": {
+                            "type": "integer"
+                          },
+                          "topicName": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "targetUrl": {
+                      "type": "string"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "unAuthorizedRequest": {
+                      "type": "boolean"
+                    },
+                    "__abp": {
+                      "type": "boolean"
+                    }
+                  }
                 }
               }
             }
@@ -2110,53 +2140,7 @@
           {
             "$ref": "#/components/parameters/AppVersion"
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "Integer": {
-                    "type": "integer"
-                  },
-                  "joinTime": {
-                    "type": "object",
-                    "properties": {
-                      "end": {
-                        "type": "string"
-                      },
-                      "start": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "justWatch": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    }
-                  },
-                  "keyword": {
-                    "type": "string"
-                  },
-                  "orderBy": {
-                    "type": "integer"
-                  },
-                  "skip": {
-                    "type": "integer"
-                  },
-                  "take": {
-                    "type": "integer"
-                  },
-                  "topicId": {
-                    "type": "integer"
-                  }
-                }
-              }
-            }
-          }
-        }
+        ]
       }
     },
     "/services/app/Quora/GetSessions": {
@@ -3646,6 +3630,514 @@
           }
         }
       }
+    },
+    "/services/app/Quora/GetSessionById": {
+      "get": {
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "operationId": "getSessionById",
+        "tags": [
+          "quora"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AppName"
+          },
+          {
+            "$ref": "#/components/parameters/AppVersion"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SessionId": {
+                    "type": "string"
+                  },
+                  "Skip": {
+                    "type": "integer"
+                  },
+                  "Take": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "$ref": "#/components/schemas/Session"
+                    },
+                    "targetUrl": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "unAuthorizedRequest": {
+                      "type": "boolean"
+                    },
+                    "__abp": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/app/Quora/GetMessages": {
+      "post": {
+        "operationId": "getMessages",
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "description": "",
+        "tags": [
+          "quora"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AppName"
+          },
+          {
+            "$ref": "#/components/parameters/AppVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Message"
+                      }
+                    },
+                    "targetUrl": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "unAuthorizedRequest": {
+                      "type": "boolean"
+                    },
+                    "__abp": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/app/Quora/ResetReadState": {
+      "get": {
+        "operationId": "resetReadState",
+        "tags": [
+          "quora"
+        ],
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AppName"
+          },
+          {
+            "$ref": "#/components/parameters/AppVersion"
+          },
+          {
+            "name": "sessionId",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "nullable": true
+                    },
+                    "targetUrl": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "unAuthorizedRequest": {
+                      "type": "boolean"
+                    },
+                    "__abp": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/app/Quora/UpdateCatalog": {
+      "post": {
+        "tags": [
+          "quora"
+        ],
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "operationId": "updateCatalog",
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AppName"
+          },
+          {
+            "$ref": "#/components/parameters/AppVersion"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "nullable": true
+                    },
+                    "targetUrl": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "unAuthorizedRequest": {
+                      "type": "boolean"
+                    },
+                    "__abp": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/app/Quora/AlterQuoraCatalogSortAsync": {
+      "post": {
+        "operationId": "alterQuoraCatalogSort",
+        "tags": [
+          "quora"
+        ],
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AppName"
+          },
+          {
+            "$ref": "#/components/parameters/AppVersion"
+          }
+        ],
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "sort": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "nullable": true
+                    },
+                    "targetUrl": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "unAuthorizedRequest": {
+                      "type": "boolean"
+                    },
+                    "__abp": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/app/Quora/GetCollectSessions": {
+      "post": {
+        "operationId": "getCollectSessions",
+        "tags": [
+          "quora"
+        ],
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AppName"
+          },
+          {
+            "$ref": "#/components/parameters/AppVersion"
+          }
+        ],
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "collectTime": {
+                    "$ref": "#/components/schemas/TimeFrame"
+                  },
+                  "keyword": {
+                    "type": "string"
+                  },
+                  "topicId": {
+                    "type": "integer"
+                  },
+                  "skip": {
+                    "type": "integer"
+                  },
+                  "take": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CollectSession"
+                      }
+                    },
+                    "targetUrl": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "unAuthorizedRequest": {
+                      "type": "boolean"
+                    },
+                    "__abp": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/app/Quora/SetQuoraCollectAsync": {
+      "post": {
+        "operationId": "setQuoraCollect",
+        "tags": [
+          "quora"
+        ],
+        "security": [
+          {
+            "token": []
+          }
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AppName"
+          },
+          {
+            "$ref": "#/components/parameters/AppVersion"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "isCollect": {
+                    "type": "boolean"
+                  },
+                  "sessionId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "nullable": false
+                    },
+                    "targetUrl": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "$ref": "#/components/schemas/ApiError"
+                    },
+                    "unAuthorizedRequest": {
+                      "type": "boolean"
+                    },
+                    "__abp": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -4741,6 +5233,96 @@
           },
           "topicId": {
             "type": "integer"
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "properties": {
+          "applaud": {
+            "type": "object"
+          },
+          "applaudTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "applauds": {
+            "type": "integer"
+          },
+          "contact": {
+            "type": "string",
+            "format": "uri"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "msgFlag": {
+            "type": "integer"
+          },
+          "read": {
+            "type": "object"
+          },
+          "readTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sendTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sessionId": {
+            "type": "integer"
+          },
+          "snapshot": {
+            "type": "string",
+            "format": "uri"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "userName": {
+            "type": "string"
+          }
+        }
+      },
+      "CollectSession": {
+        "type": "object",
+        "properties": {
+          "askUserName": {
+            "type": "string"
+          },
+          "askUserPhoto": {
+            "type": "string",
+            "format": "uri"
+          },
+          "class": {
+            "type": "string"
+          },
+          "collectTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "courseId": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "snapshot": {
+            "type": "string",
+            "format": "uri"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "topicName": {
+            "type": "string"
           }
         }
       }
