@@ -22,6 +22,10 @@
     {
       "url": "https://proxy.astrack.me/zykj/api",
       "description": "Proxy Server"
+    },
+    {
+      "url": "https://zyp.astrack.me/zpi",
+      "description": "Proxy on Fastly"
     }
   ],
   "paths": {
