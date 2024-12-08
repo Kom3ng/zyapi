@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: 中育API
-  version: '1.0'
+  version: "1.0"
   description: "\u4E2D\u80B2\u7684api"
   contact:
     name: Astrack
@@ -11,17 +11,19 @@ info:
     name: MIT
     url: https://mit-license.org/
 servers:
-- url: http://sxz.api.zykj.org/api
-  description: Official Server
-- url: https://proxy.astrack.me/zykj/api
-  description: Proxy Server
+  - url: http://sxz.api.zykj.org/api
+    description: Official Server
+  - url: https://proxy.astrack.me/zykj/api
+    description: Proxy Server
+  - url: https://zyp.astrack.me/zpi
+    description: Proxy on Fastly
 paths:
   /services/app/Weather/GetQWeatherAsync:
     get:
       summary: "\u83B7\u53D6\u5929\u6C14\u4FE1\u606F"
       tags: ["misc"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -68,7 +70,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __adp:
@@ -76,22 +78,22 @@ paths:
       operationId: getQWeather
       description: "\u83B7\u53D6\u4E09\u5929\u5929\u6C14"
       parameters:
-      - schema:
-          type: string
-        in: query
-        name: location
-        description: "\u4F4D\u7F6E"
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - schema:
+            type: string
+          in: query
+          name: location
+          description: "\u4F4D\u7F6E"
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       security:
-      - token: []
+        - token: []
     parameters: []
   /services/app/Setting/GetSystemSettingsForStudentAsync:
     get:
       summary: "\u83B7\u53D6\u5B66\u751F\u8BBE\u7F6E"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -110,17 +112,17 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getSystemSettingsForStudent
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /TokenAuth/Login:
     post:
       tags:
@@ -141,7 +143,7 @@ paths:
                 userName:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -162,7 +164,7 @@ paths:
                       userId:
                         type: integer
                       roleType:
-                        $ref: '#/components/schemas/RoleType'
+                        $ref: "#/components/schemas/RoleType"
                       mobile:
                         type: string
                       needChangePwd:
@@ -178,7 +180,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -188,7 +190,7 @@ paths:
       summary: "\u83B7\u53D6\u6240\u6709\u8BBE\u7F6E"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -239,17 +241,17 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getAllSettings
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /services/app/Message/GetMyMessageListAsync:
     post:
       tags:
@@ -257,7 +259,7 @@ paths:
       summary: "\u83B7\u53D6\u6D88\u606F\u5217\u8868"
       operationId: getMyMessageList
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -297,7 +299,7 @@ paths:
                                   type: string
                                   format: uri
                                 roleType:
-                                  $ref: '#/components/schemas/RoleType'
+                                  $ref: "#/components/schemas/RoleType"
                             isDeleted:
                               type: boolean
                             deleterUserId:
@@ -319,13 +321,13 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       security:
-      - token: []
+        - token: []
       requestBody:
         content:
           application/json:
@@ -341,8 +343,8 @@ paths:
                 type:
                   type: integer
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /services/app/Message/SetMessageReadAsync:
     post:
       tags:
@@ -350,7 +352,7 @@ paths:
       summary: "\u8BBE\u7F6E\u6D88\u606F\u5DF2\u8BFB"
       operationId: setMessageRead
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -364,26 +366,26 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
-      - schema:
-          type: integer
-        in: query
-        name: messageId
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+        - schema:
+            type: integer
+          in: query
+          name: messageId
   /services/app/Notice/GetNoticeAsync:
     get:
       summary: "\u83B7\u53D6\u901A\u77E5"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -408,27 +410,27 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getNotice
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
-      - schema:
-          type: integer
-        in: query
-        name: id
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+        - schema:
+            type: integer
+          in: query
+          name: id
   /services/app/Message/GetMyUnreadMessageCountAsync:
     get:
       summary: "\u83B7\u53D6\u672A\u8BFB\u6D88\u606F\u5217\u8868"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -450,23 +452,23 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getMyUnreadMessageCount
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /services/app/WebWhiteList/GetAllCommonWebSiteAsync:
     get:
       summary: "\u83B7\u53D6\u5171\u540C\u7684\u7F51\u5740"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -482,7 +484,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -490,16 +492,16 @@ paths:
       operationId: getAllCommonWebSite
       description: "\u4E0D\u77E5\u9053\u662F\u5E72\u4EC0\u4E48\u7684(^^;"
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /services/app/WebWhiteList/GetAllWhiteUrlAsync:
     get:
       summary: "\u83B7\u53D6\u767D\u540D\u5355"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -514,23 +516,23 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getAllWhiteUrlAsync
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /services/app/StudentUser/CoursesSubscribed:
     get:
       summary: "\u83B7\u53D6\u8BA2\u9605\u8BFE\u7A0B"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -594,16 +596,16 @@ paths:
                           type: string
       operationId: coursesSubscribed
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /services/app/ObjectStorage/GeneratorTokenAsync:
     get:
       summary: "\u751F\u6210OSS\u4EE4\u724C"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -636,17 +638,17 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: generatorToken
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /dn/GetDnUrl:
     get:
       summary: "\u83B7\u53D6\u61C2\u4F60100URL"
@@ -654,7 +656,7 @@ paths:
       security:
         - token: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -668,25 +670,25 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getDnUrl
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
-      - schema:
-          type: integer
-        in: query
-        name: clientType
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+        - schema:
+            type: integer
+          in: query
+          name: clientType
   /services/app/StoreAppControl/CanIOpenCameraAsync:
     get:
       summary: "\u83B7\u53D6\u6253\u5F00\u6444\u50CF\u5934\u6743\u9650"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -700,21 +702,21 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: canIOpenCamera
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
-      - schema:
-          type: string
-        in: query
-        name: packageName
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+        - schema:
+            type: string
+          in: query
+          name: packageName
       security:
-      - token: []
+        - token: []
   /services/app/StoreAppControl/RecordPicturesAsync:
     post:
       tags:
@@ -722,7 +724,7 @@ paths:
       summary: "\u8BB0\u5F55\u56FE\u7247"
       operationId: recordPictures
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -736,16 +738,16 @@ paths:
                   targetUrl:
                     type: string
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -765,7 +767,7 @@ paths:
       summary: "\u68C0\u67E5\u66F4\u65B0"
       tags: ["manage"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -821,27 +823,27 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: checkUpdate
       parameters:
-      - schema:
-          type: string
-        in: query
-        name: packageName
-      - schema:
-          type: integer
-        in: query
-        name: appType
+        - schema:
+            type: string
+          in: query
+          name: packageName
+        - schema:
+            type: integer
+          in: query
+          name: appType
   /services/app/MistakeBook/GetMyTags:
     get:
       summary: "\u83B7\u53D6\u6807\u7B7E"
       tags: ["mistake"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -864,17 +866,17 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getMyTags
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /services/app/MistakeBook/MultiRemoveMistakeItemsAsync:
     post:
       tags:
@@ -884,8 +886,8 @@ paths:
       security:
         - token: []
       parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -899,7 +901,7 @@ paths:
                   items:
                     type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -913,7 +915,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -923,7 +925,7 @@ paths:
       summary: "\u83B7\u53D6\u9519\u9898\u95EE\u9898\u4FE1\u606F"
       tags: ["mistake"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -944,7 +946,7 @@ paths:
                       qstFlows:
                         type: array
                         items:
-                          $ref: '#/components/schemas/QstFlow'
+                          $ref: "#/components/schemas/QstFlow"
                       qstPath:
                         type: string
                       attachments:
@@ -1043,21 +1045,21 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getMistakeQstItemDetailInfo
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
-      - schema:
-          type: integer
-        in: query
-        name: itemId
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+        - schema:
+            type: integer
+          in: query
+          name: itemId
       security:
-      - token: []
+        - token: []
   /services/app/MistakeBook/SearchMistakeQstItemsAsync:
     post:
       tags:
@@ -1065,7 +1067,7 @@ paths:
       summary: "\u641C\u7D22\u9519\u9898\u95EE\u9898"
       operationId: searchMistakeQstItems
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1113,16 +1115,16 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -1158,7 +1160,7 @@ paths:
       summary: "\u83B7\u53D6\u9519\u9898\u672C"
       tags: ["mistake"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1198,23 +1200,23 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getMyMistakeBooks
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
   /services/app/Quora/GetCatalogs:
     get:
       summary: "\u83B7\u53D6\u76EE\u5F55"
       tags: ["quora"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1245,14 +1247,14 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getCatalogs
       security:
-      - token: []
+        - token: []
   /services/app/Quora/GetQuoraStudentTopicsAsync:
     get:
       tags:
@@ -1260,7 +1262,7 @@ paths:
       summary: "\u83B7\u53D6\u968F\u8EAB\u7B54"
       operationId: getQuoraStudentTopics
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1281,23 +1283,23 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
 
   /services/app/Quora/GetSessions:
     post:
       summary: "\u83B7\u53D6\u968F\u8EAB\u7B54"
       tags: ["quora"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1307,23 +1309,23 @@ paths:
                   result:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Session'                        
+                      $ref: "#/components/schemas/Session"
                   targetUrl:
                     type: string
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: getSessions
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -1333,7 +1335,7 @@ paths:
                 catalogId:
                   type: integer
                 joinTime:
-                  $ref: '#/components/schemas/TimeFrame'
+                  $ref: "#/components/schemas/TimeFrame"
                 justWatch:
                   type: array
                   items:
@@ -1349,13 +1351,13 @@ paths:
                 topicId:
                   type: integer
                 updateTime:
-                  $ref: '#/components/schemas/TimeFrame'
+                  $ref: "#/components/schemas/TimeFrame"
   /services/app/Quora/DeleteCatalog:
     get:
       summary: "\u5220\u9664\u76EE\u5F55"
       tags: ["quora"]
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1369,21 +1371,21 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       operationId: deleteCatalog
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
-      - schema:
-          type: integer
-        in: query
-        name: id
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+        - schema:
+            type: integer
+          in: query
+          name: id
   /services/app/Quora/AddCatalog:
     post:
       tags:
@@ -1391,7 +1393,7 @@ paths:
       summary: "\u65B0\u5EFA\u76EE\u5F55"
       operationId: addCatalog
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1406,16 +1408,16 @@ paths:
                   success:
                     type: integer
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -1426,45 +1428,45 @@ paths:
                   type: string
   /services/app/Quora/SearchQuora:
     post:
-        summary: "\u641C\u7D22\u95EE\u9898"
-        tags: ["quora"]
-        responses:
-          '200':
-            description: OK
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    result:
-                      type: array
-                      items:
-                        type: object
-                    targetUrl:
-                      type: string
-                    success:
-                      type: boolean
-                    error:
-                      $ref: '#/components/schemas/ApiError'
-                    unAuthorizedRequest:
-                      type: boolean
-                    __abp:
-                      type: boolean
-        operationId: searchQuora
-        security:
-        - token: []
-        parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
-        requestBody:
+      summary: "\u641C\u7D22\u95EE\u9898"
+      tags: ["quora"]
+      responses:
+        "200":
+          description: OK
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  imageUrl:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                  targetUrl:
                     type: string
-                    format: uri
+                  success:
+                    type: boolean
+                  error:
+                    $ref: "#/components/schemas/ApiError"
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
+      operationId: searchQuora
+      security:
+        - token: []
+      parameters:
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                imageUrl:
+                  type: string
+                  format: uri
   /services/app/Quora/CreateSession:
     post:
       tags:
@@ -1472,7 +1474,7 @@ paths:
       summary: "\u521B\u5EFA\u968F\u8EAB\u7B54"
       operationId: createSession
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1487,16 +1489,16 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
       security:
-      - token: []
+        - token: []
       parameters:
-      - $ref: '#/components/parameters/AppName'
-      - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -1516,8 +1518,8 @@ paths:
       operationId: refreshToken
       tags:
         - "manage"
-      description: '刷新token'
-      parameters: 
+      description: "刷新token"
+      parameters:
         - name: "refreshToken"
           in: "header"
           description: "refreshToken"
@@ -1527,7 +1529,7 @@ paths:
       security:
         - token: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1550,7 +1552,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1559,11 +1561,11 @@ paths:
     post:
       operationId: getStudentTaskList
       tags:
-        - 'task'
-      description: '获取任务列表'
-      parameters: 
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+        - "task"
+      description: "获取任务列表"
+      parameters:
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       security:
         - token: []
       requestBody:
@@ -1577,23 +1579,23 @@ paths:
                 skipCount:
                   type: integer
                 taskListType:
-                  type: integer   
+                  type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   result:
-                    $ref: '#/components/schemas/TaskList'
+                    $ref: "#/components/schemas/TaskList"
                   targetUrl:
                     type: string
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1603,23 +1605,23 @@ paths:
       operationId: getNoQstExam
       tags:
         - "task"
-      description: ''
-      parameters: 
+      description: ""
+      parameters:
         - name: id
           in: query
-          schema: 
+          schema:
             type: integer
           required: true
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       security:
         - token: []
       responses:
-        '200':
-          description: OK  
+        "200":
+          description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   targetUrl:
@@ -1627,28 +1629,28 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
                     type: boolean
                   result:
-                    $ref: '#/components/schemas/NoQstExam'
+                    $ref: "#/components/schemas/NoQstExam"
   /services/app/Task/AskForHelpAsync:
     post:
       operationId: askForHelp
       tags:
         - "task"
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
       security:
         - token: []
       requestBody:
         content:
           application/json:
-            schema: 
+            schema:
               type: object
               properties:
                 askForHelp:
@@ -1659,11 +1661,11 @@ paths:
                   type: integer
 
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   targetUrl:
@@ -1671,7 +1673,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1683,13 +1685,13 @@ paths:
       operationId: noQstExamAnswer
       tags:
         - "task"
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
         - name: taskId
           in: query
-          schema: 
+          schema:
             type: integer
           required: true
       security:
@@ -1697,16 +1699,16 @@ paths:
       requestBody:
         content:
           application/json:
-            schema: 
+            schema:
               type: array
-              items: 
-                $ref: '#/components/schemas/Answers'
+              items:
+                $ref: "#/components/schemas/Answers"
       responses:
-        '200':
-          description: OK    
+        "200":
+          description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   targetUrl:
@@ -1714,7 +1716,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1726,19 +1728,19 @@ paths:
       operationId: getExamTask
       tags:
         - "task"
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
         - name: id
           in: query
-          schema: 
+          schema:
             type: integer
           required: true
       security:
         - token: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1746,14 +1748,14 @@ paths:
                 type: object
                 properties:
                   result:
-                    $ref: '#/components/schemas/ExamTask'
+                    $ref: "#/components/schemas/ExamTask"
                   targetUrl:
                     type: string
                     nullable: true
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1763,39 +1765,39 @@ paths:
       operationId: getQuestionView
       tags:
         - "task"
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
         - name: examId
           in: query
-          schema: 
+          schema:
             type: integer
           required: true
         - name: questionId
           in: query
-          schema: 
+          schema:
             type: integer
           required: true
       security:
         - token: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   result:
-                    $ref: '#/components/schemas/QuestionView'
+                    $ref: "#/components/schemas/QuestionView"
                   targetUrl:
                     type: string
                     nullable: true
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1805,27 +1807,27 @@ paths:
       operationId: examAnswer
       tags:
         - "task"
-      description: ''
+      description: ""
       security:
         - token: []
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
         - name: taskId
           in: query
-          schema: 
+          schema:
             type: integer
       requestBody:
         content:
           application/json:
-            schema: 
-              $ref: '#/components/schemas/Answers'              
+            schema:
+              $ref: "#/components/schemas/Answers"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   targetUrl:
@@ -1833,7 +1835,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1845,28 +1847,28 @@ paths:
       operationId: complete
       tags:
         - "task"
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
         - name: id
           in: query
-          schema: 
+          schema:
             type: integer
           required: true
         - name: isRevising
           in: query
-          schema: 
+          schema:
             type: boolean
           required: true
       security:
         - token: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   targetUrl:
@@ -1874,7 +1876,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1883,39 +1885,39 @@ paths:
                     type: object
   /services/app/User/GetInfoAsync:
     get:
-      tags: 
-        - 'manage'
+      tags:
+        - "manage"
       operationId: getInfo
-      description: ''
+      description: ""
       parameters: []
       security:
         - token: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   result:
-                    $ref: '#/components/schemas/UserInfo'
+                    $ref: "#/components/schemas/UserInfo"
                   targetUrl:
                     type: string
                     nullable: true
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
   /services/app/MistakeBook/AddInMistakeBookAsync:
     post:
       operationId: addInMistakeBook
       tags:
         - "mistake"
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
       security:
         - token: []
       requestBody:
@@ -1941,11 +1943,11 @@ paths:
                   items:
                     type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   targetUrl:
@@ -1953,7 +1955,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -1967,10 +1969,10 @@ paths:
         - token: []
       tags:
         - "mistake"
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
       requestBody:
         content:
           application/json:
@@ -1982,7 +1984,7 @@ paths:
                 pictureNote:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1997,7 +1999,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -2009,10 +2011,10 @@ paths:
         - "mistake"
       security:
         - token: []
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
       requestBody:
         content:
           application/json:
@@ -2024,7 +2026,7 @@ paths:
                 note:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2039,7 +2041,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -2049,10 +2051,10 @@ paths:
       operationId: multiSetTags
       tags:
         - "mistake"
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
       security:
         - token: []
       requestBody:
@@ -2072,7 +2074,7 @@ paths:
                   items:
                     type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2087,7 +2089,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -2097,18 +2099,18 @@ paths:
       operationId: getCustomMistakeQstItemDetailInfo
       tags:
         - "mistake"
-      description: ''
+      description: ""
       security:
         - token: []
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
         - name: itemId
           in: query
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2116,13 +2118,13 @@ paths:
                 type: object
                 properties:
                   result:
-                    $ref: '#/components/schemas/CustomMistakeInfo'
+                    $ref: "#/components/schemas/CustomMistakeInfo"
                   targetUrl:
                     type: string
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -2134,18 +2136,18 @@ paths:
         - "mistake"
       security:
         - token: []
-      description: ''
-      parameters: 
-        - $ref: '#/components/parameters/AppVersion'
-        - $ref: '#/components/parameters/AppName'
+      description: ""
+      parameters:
+        - $ref: "#/components/parameters/AppVersion"
+        - $ref: "#/components/parameters/AppName"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CustomMistakeQstItem'
+              $ref: "#/components/schemas/CustomMistakeQstItem"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2159,7 +2161,7 @@ paths:
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -2172,29 +2174,29 @@ paths:
       tags:
         - "quora"
       parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
         - name: id
           in: query
-          schema: 
+          schema:
             type: integer
       responses:
-        '200':
-          description: OK     
+        "200":
+          description: OK
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
                 properties:
                   result:
-                    $ref: '#/components/schemas/Session'
+                    $ref: "#/components/schemas/Session"
                   targetUrl:
                     type: string
                     nullable: true
                   success:
                     type: boolean
                   error:
-                    $ref: '#/components/schemas/ApiError'
+                    $ref: "#/components/schemas/ApiError"
                   unAuthorizedRequest:
                     type: boolean
                   __abp:
@@ -2204,12 +2206,12 @@ paths:
       operationId: getMessages
       security:
         - token: []
-      description: ''
+      description: ""
       tags:
         - quora
       parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -2218,33 +2220,33 @@ paths:
               properties:
                 SessionId:
                   type: string
-                Skip: 
+                Skip:
                   type: integer
-                Take: 
+                Take:
                   type: integer
       responses:
-        '200':
-          description: OK       
+        "200":
+          description: OK
           content:
             application/json:
-              schema: 
-                  type: object
-                  properties:
-                    result:
-                      type: array
-                      items:
-                        $ref: '#/components/schemas/Message'
-                    targetUrl:
-                      type: string
-                      nullable: true
-                    success:
-                      type: boolean
-                    error:
-                      $ref: '#/components/schemas/ApiError'
-                    unAuthorizedRequest:
-                      type: boolean
-                    __abp:
-                      type: boolean
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Message"
+                  targetUrl:
+                    type: string
+                    nullable: true
+                  success:
+                    type: boolean
+                  error:
+                    $ref: "#/components/schemas/ApiError"
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
   /services/app/Quora/ResetReadState:
     get:
       operationId: resetReadState
@@ -2252,36 +2254,36 @@ paths:
         - quora
       security:
         - token: []
-      description: ''
+      description: ""
       parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
         - name: sessionId
           in: query
-          schema: 
+          schema:
             type: integer
       responses:
-        '200':
-          description: OK       
+        "200":
+          description: OK
           content:
             application/json:
-              schema: 
-                  type: object
-                  properties:
-                    result:
-                      type: object
-                      nullable: true
-                    targetUrl:
-                      type: string
-                      nullable: true
-                    success:
-                      type: boolean
-                    error:
-                      $ref: '#/components/schemas/ApiError'
-                    unAuthorizedRequest:
-                      type: boolean
-                    __abp:
-                      type: boolean
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    nullable: true
+                  targetUrl:
+                    type: string
+                    nullable: true
+                  success:
+                    type: boolean
+                  error:
+                    $ref: "#/components/schemas/ApiError"
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
   /services/app/Quora/UpdateCatalog:
     post:
       tags:
@@ -2289,10 +2291,10 @@ paths:
       security:
         - token: []
       operationId: updateCatalog
-      description: ''
+      description: ""
       parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -2304,27 +2306,27 @@ paths:
                 name:
                   type: string
       responses:
-        '200':
-          description: OK       
+        "200":
+          description: OK
           content:
             application/json:
-              schema: 
-                  type: object
-                  properties:
-                    result:
-                      type: object
-                      nullable: true
-                    targetUrl:
-                      type: string
-                      nullable: true
-                    success:
-                      type: boolean
-                    error:
-                      $ref: '#/components/schemas/ApiError'
-                    unAuthorizedRequest:
-                      type: boolean
-                    __abp:
-                      type: boolean
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    nullable: true
+                  targetUrl:
+                    type: string
+                    nullable: true
+                  success:
+                    type: boolean
+                  error:
+                    $ref: "#/components/schemas/ApiError"
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
   /services/app/Quora/AlterQuoraCatalogSortAsync:
     post:
       operationId: alterQuoraCatalogSort
@@ -2333,9 +2335,9 @@ paths:
       security:
         - token: []
       parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
-      description: ''
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+      description: ""
       requestBody:
         content:
           application/json:
@@ -2349,27 +2351,27 @@ paths:
                   sort:
                     type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
-                  type: object
-                  properties:
-                    result:
-                      type: object
-                      nullable: true
-                    targetUrl:
-                      type: string
-                      nullable: true
-                    success:
-                      type: boolean
-                    error:
-                      $ref: '#/components/schemas/ApiError'
-                    unAuthorizedRequest:
-                      type: boolean
-                    __abp:
-                      type: boolean
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    nullable: true
+                  targetUrl:
+                    type: string
+                    nullable: true
+                  success:
+                    type: boolean
+                  error:
+                    $ref: "#/components/schemas/ApiError"
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
   /services/app/Quora/GetCollectSessions:
     post:
       operationId: getCollectSessions
@@ -2378,17 +2380,17 @@ paths:
       security:
         - token: []
       parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
-      description: ''
-      requestBody: 
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
+      description: ""
+      requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
                 collectTime:
-                  $ref: '#/components/schemas/TimeFrame'
+                  $ref: "#/components/schemas/TimeFrame"
                 keyword:
                   type: string
                 topicId:
@@ -2398,28 +2400,28 @@ paths:
                 take:
                   type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
-                  type: object
-                  properties:
-                    result:
-                      type: array
-                      items:
-                        $ref: '#/components/schemas/CollectSession'
-                    targetUrl:
-                      type: string
-                      nullable: true
-                    success:
-                      type: boolean
-                    error:
-                      $ref: '#/components/schemas/ApiError'
-                    unAuthorizedRequest:
-                      type: boolean
-                    __abp:
-                      type: boolean
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/CollectSession"
+                  targetUrl:
+                    type: string
+                    nullable: true
+                  success:
+                    type: boolean
+                  error:
+                    $ref: "#/components/schemas/ApiError"
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
   /services/app/Quora/SetQuoraCollectAsync:
     post:
       operationId: setQuoraCollect
@@ -2427,10 +2429,10 @@ paths:
         - quora
       security:
         - token: []
-      description: ''
+      description: ""
       parameters:
-        - $ref: '#/components/parameters/AppName'
-        - $ref: '#/components/parameters/AppVersion'
+        - $ref: "#/components/parameters/AppName"
+        - $ref: "#/components/parameters/AppVersion"
       requestBody:
         content:
           application/json:
@@ -2442,27 +2444,27 @@ paths:
                 sessionId:
                   type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
-              schema: 
-                  type: object
-                  properties:
-                    result:
-                      type: object
-                      nullable: false
-                    targetUrl:
-                      type: string
-                      nullable: true
-                    success:
-                      type: boolean
-                    error:
-                      $ref: '#/components/schemas/ApiError'
-                    unAuthorizedRequest:
-                      type: boolean
-                    __abp:
-                      type: boolean
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    nullable: false
+                  targetUrl:
+                    type: string
+                    nullable: true
+                  success:
+                    type: boolean
+                  error:
+                    $ref: "#/components/schemas/ApiError"
+                  unAuthorizedRequest:
+                    type: boolean
+                  __abp:
+                    type: boolean
 
 components:
   schemas:
@@ -2482,16 +2484,16 @@ components:
     ClientType:
       title: ClientType
       enum:
-      - 1
-      - 2
+        - 1
+        - 2
       default: 1
       example: 1
     RoleType:
       title: RoleType
       enum:
-      - 1
-      - 2
-      - 9
+        - 1
+        - 2
+        - 9
     QstFlow:
       title: QstFlow
       type: object
@@ -2501,7 +2503,7 @@ components:
         subQuestions:
           type: array
           items:
-            $ref: '#/components/schemas/QstFlow'
+            $ref: "#/components/schemas/QstFlow"
         score:
           type: number
           format: double
@@ -2517,7 +2519,7 @@ components:
           type: integer
         options:
           type: array
-          items: 
+          items:
             type: string
         getScore:
           type: number
@@ -2557,7 +2559,7 @@ components:
         roles:
           type: array
           items:
-            $ref: '#/components/schemas/RoleType'
+            $ref: "#/components/schemas/RoleType"
     QuestionView:
       type: object
       properties:
@@ -2571,11 +2573,11 @@ components:
           nullable: true
         microClassToQuestionList:
           type: array
-          items: 
+          items:
             type: object
         microClassToStudentList:
           type: array
-          items: 
+          items:
             type: object
         examDraft:
           type: string
@@ -2590,7 +2592,7 @@ components:
           type: boolean
         lastRoundRevisingRecords:
           type: array
-          items: 
+          items:
             type: object
         typicalRightAnswers:
           type: string
@@ -2611,7 +2613,7 @@ components:
         qstFlows:
           type: array
           items:
-            $ref: '#/components/schemas/QstFlow'
+            $ref: "#/components/schemas/QstFlow"
         qstFlowsCount:
           type: integer
         totalScore:
@@ -2636,7 +2638,7 @@ components:
                 type: integer
               examAnswers:
                 type: array
-                items: 
+                items:
                   type: string
               examComments:
                 type: array
@@ -2647,7 +2649,7 @@ components:
                 nullable: true
               revisingAnswers:
                 type: array
-                items: 
+                items:
                   type: string
               revisingComments:
                 type: array
@@ -2783,14 +2785,14 @@ components:
       properties:
         answers:
           type: array
-          items: 
+          items:
             type: object
             properties:
               answers:
                 type: array
-                items: 
+                items:
                   type: string
-              uuid: 
+              uuid:
                 type: string
                 format: uuid
         draft:
@@ -2893,7 +2895,7 @@ components:
                     qstFlows:
                       type: array
                       items:
-                        $ref: '#/components/schemas/QstFlow'
+                        $ref: "#/components/schemas/QstFlow"
                     score:
                       type: integer
         id:
@@ -2957,62 +2959,62 @@ components:
           items:
             type: object
             properties:
-                address:
-                  type: string
-                  format: uri
-                answerPad:
-                  type: boolean
-                answerSheet:
-                  type: boolean
-                answeringUrge:
-                  type: integer
-                correctOnline:
-                  type: boolean
-                correctOnlineState:
-                  type: integer
-                correctWithSelf:
-                  type: boolean
-                creationTime:
-                  type: string
-                  format: date-time
-                endTime:
-                  type: string
-                  format: date-time
-                examId:
-                  type: integer
-                examName:
-                  type: string
-                examState:
-                  type: integer
-                examTaskId:
-                  type: integer
-                isCollect:
-                  type: boolean
-                isExempted:
-                  type: boolean
-                isNoStem:
-                  type: boolean
-                isRead:
-                  type: boolean
-                revisingUrge:
-                  type: integer
-                serialNum:
-                  type: string
-                size:
-                  type: integer
-                specificTrainingType:
-                  type: integer
-                startTime:
-                  type: string
-                  format: date-time
-                taskState:
-                  type: integer
-                testPagerId:
-                  type: integer
-                topicId:
-                  type: integer
-                topicName:
-                  type: string
+              address:
+                type: string
+                format: uri
+              answerPad:
+                type: boolean
+              answerSheet:
+                type: boolean
+              answeringUrge:
+                type: integer
+              correctOnline:
+                type: boolean
+              correctOnlineState:
+                type: integer
+              correctWithSelf:
+                type: boolean
+              creationTime:
+                type: string
+                format: date-time
+              endTime:
+                type: string
+                format: date-time
+              examId:
+                type: integer
+              examName:
+                type: string
+              examState:
+                type: integer
+              examTaskId:
+                type: integer
+              isCollect:
+                type: boolean
+              isExempted:
+                type: boolean
+              isNoStem:
+                type: boolean
+              isRead:
+                type: boolean
+              revisingUrge:
+                type: integer
+              serialNum:
+                type: string
+              size:
+                type: integer
+              specificTrainingType:
+                type: integer
+              startTime:
+                type: string
+                format: date-time
+              taskState:
+                type: integer
+              testPagerId:
+                type: integer
+              topicId:
+                type: integer
+              topicName:
+                type: string
     Session:
       type: object
       properties:
@@ -3084,7 +3086,7 @@ components:
         answerInfos:
           type: array
           items:
-            $ref: '#/components/schemas/AnswerInfo'
+            $ref: "#/components/schemas/AnswerInfo"
         attachments:
           type: string
           nullable: true
@@ -3231,7 +3233,7 @@ components:
           type: boolean
         msgFlag:
           type: integer
-        read: 
+        read:
           type: object
         readTime:
           type: string
