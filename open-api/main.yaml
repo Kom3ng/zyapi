@@ -5,7 +5,7 @@ info:
   description: "\u4E2D\u80B2\u7684api"
   contact:
     name: Astrack
-    url: https://astrack.me
+    url: https://okay.moe
     email: 3262392248@qq.com
   license:
     name: MIT
@@ -13,9 +13,7 @@ info:
 servers:
   - url: http://sxz.api.zykj.org/api
     description: Official Server
-  - url: https://proxy.astrack.me/zykj/api
-    description: Proxy Server
-  - url: https://zyp.astrack.me/zpi
+  - url: https://zyp.metasxz.org/api
     description: Proxy on Fastly
 paths:
   /services/app/Weather/GetQWeatherAsync:
