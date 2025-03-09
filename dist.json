@@ -6,7 +6,7 @@
     "description": "中育的api",
     "contact": {
       "name": "Astrack",
-      "url": "https://astrack.me",
+      "url": "https://okay.moe",
       "email": "3262392248@qq.com"
     },
     "license": {
@@ -20,11 +20,7 @@
       "description": "Official Server"
     },
     {
-      "url": "https://proxy.astrack.me/zykj/api",
-      "description": "Proxy Server"
-    },
-    {
-      "url": "https://zyp.astrack.me/zpi",
+      "url": "https://zyp.metasxz.org/api",
       "description": "Proxy on Fastly"
     }
   ],
