@@ -1,4 +1,4 @@
-[在线演示](http://gp.astrack.me/zyapi/)
+[在线演示](https://gh.okay.moe/zyapi/)
 
 ## 关于
 此项收录了中育的api
