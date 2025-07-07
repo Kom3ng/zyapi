@@ -15,6 +15,9 @@ servers:
     description: Official Server
   - url: https://zyp.metasxz.org/api
     description: Proxy on Fastly
+  - url: http://115.29.169.60:8000/api
+    description: Proxy by Loshop
+
 paths:
   /services/app/Weather/GetQWeatherAsync:
     get:
